@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Replacer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        WORD Replacer
+    </header>
+    <main>
+        <div class="input">
+            <div class="input-1">
+                <input type="text" name="input-word" id="input-word" placeholder="Enter word/line">
+                <input type="text" name="input-replace" id="input-replace" placeholder="Enter replacement">
+            </div>
+            <div class="input-2">
+                <button id="submit-button" onclick="replaceWord()">Enter</button>
+            </div>
+            <div class="input-2">
+                <textarea name="input-text" id="input-text" cols="35" rows="20" placeholder="Enter paragraph"></textarea>
+            </div>
+        </div>
+        <div class="output">
+            <!-- <div class="output-head">
+                Output:
+            </div> -->
+            <textarea name="output" id="output" cols="35" rows="20" placeholder="Output"></textarea>
+        </div>
+    </main>
+    <script>
+        let upperCaseFletter = (word4)=>{
+            let fletter = word4[0].toUpperCase();
+            let rletter = word4.slice(1);
+            rletter = rletter.toLowerCase();
+            word4 = fletter+rletter;
+            return word4;
+            }
+
+        const replaceWord = ()=>{
+            let word1 = document.getElementById('input-word').value;
+
+            let word2 = document.getElementById('input-word').value;
+            word2 = word2.toUpperCase();
+            let word3 = document.getElementById('input-word').value;
+            word3 = word3.toLowerCase();
+
+            let word4 = document.getElementById('input-word').value
+            word4 = upperCaseFletter(word4);
+
+            const replacement = document.getElementById('input-replace').value;
+            const text = document.getElementById('input-text').value;
+
+            let newText1 = text.replaceAll(word1 , replacement) ;
+            let newText2 = newText1.replaceAll(word2 , replacement) ;
+            let newText3 = newText2.replaceAll(word3 , replacement) ;
+            let newText4 = newText3.replaceAll(word4 , replacement) ;
+
+            document.getElementById('output').value = newText4;
+        }
+    </script>
+</body>
+
+</html>
