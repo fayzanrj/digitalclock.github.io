@@ -26,12 +26,19 @@ format24Hr.addEventListener('click', () => {
 
 const displayTime = (h, m, s) => {
     if (format == "12") {
-        if (h > 12) {
-            h = h - 12
-            hours.innerHTML = h
-            minutes.innerHTML = m
-            seconds.innerHTML = s
-            ampm.innerHTML = "PM"
+        if (h >= 12) {
+            if (h == 12) {
+                hours.innerHTML = h
+                minutes.innerHTML = m
+                seconds.innerHTML = s
+                ampm.innerHTML = "PM"
+            } else {
+                h = h - 12
+                hours.innerHTML = h
+                minutes.innerHTML = m
+                seconds.innerHTML = s
+                ampm.innerHTML = "PM"
+            }
         } else {
             if (h == 0) {
                 hours.innerHTML = '12'
